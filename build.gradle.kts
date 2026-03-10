@@ -17,6 +17,7 @@ dependencies {
   // general
   "compileOnly"(libs.annotations)
   "compileOnly"(libs.purpur)
+  "implementation"(libs.zstd.jni)
   // testing
   "testImplementation"(libs.bundles.junit)
 }

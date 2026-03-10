@@ -3,6 +3,7 @@
 # general
 lombok = "1.18.42"
 annotations = "26.0.2-1"
+zstd-jni = "1.5.7-7"
 
 # testing
 junit = "6.0.2"
@@ -16,6 +17,7 @@ purpur = "1.21.11-R0.1-SNAPSHOT"
 # general
 lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" }
 annotations = { group = "org.jetbrains", name = "annotations", version.ref = "annotations" }
+zstd-jni = { group = "com.github.luben", name = "zstd-jni", version.ref = "zstd-jni" }
 
 # junit
 junitApi = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit" }
