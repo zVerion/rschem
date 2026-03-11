@@ -150,7 +150,7 @@ public interface Schematic {
    * @return the generation hints, never null.
    */
   @NonNull
-  GenerationHint getGenerationHints();
+  GenerationHint hints();
 
   /**
    * Returns the {@link TransformRule} that govern which transformations are permitted on this schematic.
@@ -158,7 +158,7 @@ public interface Schematic {
    * @return the transform rules, never null.
    */
   @NonNull
-  TransformRule getTransformRules();
+  TransformRule rules();
 
   /**
    * Returns the {@link ConnectionPort} with the given id, or an empty optional if no port with that id is defined on
@@ -168,7 +168,7 @@ public interface Schematic {
    * @return the matching port, or an empty optional, never null.
    */
   @NonNull
-  Optional<ConnectionPort> getPort(@NonNull String portId);
+  Optional<ConnectionPort> port(@NonNull String portId);
 
   /**
    * Returns all {@link ConnectionPort connection ports} located on the given {@link PortFace}.
@@ -177,7 +177,7 @@ public interface Schematic {
    * @return an unmodifiable list of ports on the given face, never null.
    */
   @NonNull
-  List<ConnectionPort> getPortsOnFace(@NonNull PortFace face);
+  List<ConnectionPort> portsOnFace(@NonNull PortFace face);
 
   /**
    * Returns whether this schematic carries the given tag. The comparison is case-insensitive.
@@ -213,7 +213,7 @@ public interface Schematic {
    * @param <T>       the value type.
    * @return the value wrapped in an optional, or empty if absent or mismatched, never null.
    */
-  <T> @NonNull Optional<T> getCustomProperty(@NonNull String namespace, @NonNull String key, @NonNull Class<T> type);
+  <T> @NonNull Optional<T> customProperty(@NonNull String namespace, @NonNull String key, @NonNull Class<T> type);
 
   /**
    * Returns an unmodifiable view of all raw custom properties stored on this schematic, keyed by
