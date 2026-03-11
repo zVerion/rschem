@@ -1,4 +1,4 @@
-package me.verion.rschem.format;
+package me.verion.rschem.format.compression;
 
 import lombok.NonNull;
 
