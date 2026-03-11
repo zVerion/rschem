@@ -57,6 +57,15 @@ public interface SchematicQuery {
   SchematicQuery hasPortAtFace(@NonNull PortFace face);
 
   /**
+   * Retains only schematics that have at least one {@link ConnectionPort} located on the given {@link PortType}.
+   *
+   * @param type the port type to filter by, never null.
+   * @return the same instance as used to call the method, for chaining.
+   */
+  @NonNull
+  SchematicQuery hasPortType(@NonNull PortType type);
+
+  /**
    * Retains only schematics that have at least one {@link ConnectionPort} on the given {@link PortFace} that is
    * compatible with any port of the given {@link Schematic}.
    *
