@@ -47,7 +47,7 @@ final class MetadataSerializer {
    * @param schematic the schematic to serialize, never null.
    * @return the UTF-8 encoded JSON bytes, never null.
    */
-  static byte @org.jspecify.annotations.NonNull [] toJsonBytes(@NonNull Schematic schematic) {
+  static byte @NonNull [] toJsonBytes(@NonNull Schematic schematic) {
     JsonObject root = new JsonObject();
 
     root.addProperty("schemaVersion", CURRENT_SCHEMA_VERSION);
@@ -76,8 +76,8 @@ final class MetadataSerializer {
     schematic.ports().forEach(port -> portsArray.add(serialisePort(port)));
     root.add("connectionPorts", portsArray);
 
-    root.add("transformRules", serialiseTransformRules(schematic.getTransformRules()));
-    root.add("generationHints", serialiseGenerationHints(schematic.getGenerationHints()));
+    root.add("transformRules", serialiseTransformRules(schematic.rules()));
+    root.add("generationHints", serialiseGenerationHints(schematic.hints()));
 
     JsonArray markersArray = new JsonArray();
     schematic.markers().forEach(marker -> markersArray.add(serialiseMarker(marker)));
