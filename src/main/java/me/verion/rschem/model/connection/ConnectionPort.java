@@ -3,6 +3,7 @@ package me.verion.rschem.model.connection;
 import com.google.common.base.Preconditions;
 import lombok.NonNull;
 import me.verion.rschem.model.RoomDimensions;
+import me.verion.rschem.model.generation.GenerationHint;
 import org.bukkit.util.BlockVector;
 import org.jetbrains.annotations.Unmodifiable;
 
@@ -189,6 +190,20 @@ public record ConnectionPort(
      */
     public @NonNull Builder height(int height) {
       this.height = height;
+      return this;
+    }
+
+    /**
+     * Sets both the height and width in a single call. Shorthand for calling {@link #height(int)} and
+     * {@link #width(int)}.
+     *
+     * @param width the port width.
+     * @param height the port height.
+     * @return the same instance as used to call the method, for chaining.
+     */
+    public @NonNull Builder size(int height, int width) {
+      this.height = height;
+      this.width = width;
       return this;
     }
 

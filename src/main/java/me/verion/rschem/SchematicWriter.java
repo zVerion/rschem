@@ -2,7 +2,7 @@ package me.verion.rschem;
 
 import lombok.NonNull;
 import me.verion.rschem.exception.SchematicWriteException;
-import me.verion.rschem.format.CompressionType;
+import me.verion.rschem.format.compression.CompressionType;
 
 import java.nio.file.Path;
 
