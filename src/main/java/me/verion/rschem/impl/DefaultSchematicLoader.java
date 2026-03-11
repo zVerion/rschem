@@ -42,7 +42,7 @@ public final class DefaultSchematicLoader implements SchematicLoader {
 
     try {
       return RschemCodec.decode(Files.readAllBytes(path));
-    } catch (IOException ignored) {
+    } catch (IOException exception) {
       throw new SchematicLoadException(String.format("Failed to read schematic from %s", path), exception);
     }
   }
@@ -55,7 +55,7 @@ public final class DefaultSchematicLoader implements SchematicLoader {
     try {
       return Optional.of(load(path));
     } catch (SchematicLoadException exception) {
-      LOGGER.warning(String.format("[SchematicLoader] Could not load %s: %s"path.getFileName(), exception.getMessage()));
+      LOGGER.warning(String.format("[SchematicLoader] Could not load %s: %s", path.getFileName(), exception.getMessage()));
       return Optional.empty();
     }
   }
