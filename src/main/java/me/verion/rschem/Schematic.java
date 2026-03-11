@@ -1,6 +1,7 @@
 package me.verion.rschem;
 
 import lombok.NonNull;
+import me.verion.rschem.impl.SchematicBuilderImpl;
 import me.verion.rschem.migration.Migrator;
 import me.verion.rschem.model.BlockPalette;
 import me.verion.rschem.model.RoomDimensions;
@@ -18,6 +19,15 @@ import java.util.Optional;
 import java.util.Set;
 
 public interface Schematic {
+
+  /**
+   * Creates a new builder to customize the creation of the new schematic.
+   *
+   * @return a new schematic builder.
+   */
+  static @NonNull SchematicBuilder builder() {
+    return new SchematicBuilderImpl();
+  }
 
   /**
    * Returns the unique namespaced identifier of this schematic, e.g. {@code "building:room_bedroom_large_01"}.
