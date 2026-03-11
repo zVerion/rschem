@@ -28,7 +28,7 @@ public record TransformRule(
   @NonNull @Unmodifiable Set<Integer> validRotations,
   boolean allowMirrorX,
   boolean allowMirrorZ,
-  @Nullable BlockVector vector
+  @Nullable BlockVector rotationCenter
 ) {
 
   /**
