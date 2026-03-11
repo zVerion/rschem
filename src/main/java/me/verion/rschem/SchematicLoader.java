@@ -2,6 +2,7 @@ package me.verion.rschem;
 
 import lombok.NonNull;
 import me.verion.rschem.exception.SchematicLoadException;
+import org.jetbrains.annotations.Unmodifiable;
 
 import java.nio.file.Path;
 import java.util.List;
@@ -44,5 +45,6 @@ public interface SchematicLoader {
    * @throws SchematicLoadException if the directory cannot be read.
    */
   @NonNull
+  @Unmodifiable
   List<Schematic> loadDirectory(@NonNull Path directory) throws SchematicLoadException;
 }
