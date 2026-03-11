@@ -1,4 +1,4 @@
-package me.verion.rschem.model;
+package me.verion.rschem.model.connection;
 
 import lombok.NonNull;
 import org.bukkit.block.BlockFace;
