@@ -2,6 +2,7 @@ package me.verion.rschem;
 
 import lombok.NonNull;
 import me.verion.rschem.exception.SchematicLoadException;
+import me.verion.rschem.impl.SchematicRegistryImpl;
 import me.verion.rschem.model.connection.*;
 import me.verion.rschem.model.generation.*;
 import org.jetbrains.annotations.Unmodifiable;
@@ -20,6 +21,25 @@ import java.util.Optional;
  * @since 1.0
  */
 public interface SchematicRegistry {
+
+  /**
+   * Creates a new {@link SchematicRegistry} using the default {@link SchematicLoader}.
+   *
+   * @return a new schematic registry, never null.
+   */
+  static @NonNull SchematicRegistry create() {
+    return new SchematicRegistryImpl(SchematicLoader.create());
+  }
+
+  /**
+   * Creates a new {@link SchematicRegistry} using the given {@link SchematicLoader}.
+   *
+   * @param loader the schematic loader to use for {@link SchematicRegistry#loadAll(Path)}, never null.
+   * @return a new schematic registry, never null.
+   */
+  static @NonNull SchematicRegistry create(@NonNull SchematicLoader loader) {
+    return new SchematicRegistryImpl(loader);
+  }
 
   /**
    * Registers the given {@link Schematic}. If a schematic with the same id is already registered, it is replaced.
