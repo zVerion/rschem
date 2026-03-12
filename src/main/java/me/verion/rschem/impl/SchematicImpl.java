@@ -133,7 +133,7 @@ final class SchematicImpl implements Schematic {
    * {@inheritDoc}
    */
   @Override
-  public @NonNull RoomDimensions dimension() {
+  public @NonNull RoomDimensions dimensions() {
     return this.dimensions;
   }
 

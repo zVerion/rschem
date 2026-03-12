@@ -65,7 +65,7 @@ public final class MetadataSerializer {
     schematic.tags().forEach(tags::add);
     root.add("tags", tags);
 
-    var dim = schematic.dimension();
+    var dim = schematic.dimensions();
     JsonObject dimensions = new JsonObject();
     dimensions.addProperty("width", dim.width());
     dimensions.addProperty("height", dim.height());

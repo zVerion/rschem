@@ -73,7 +73,7 @@ public interface Schematic {
    * @return the room dimensions, never null.
    */
   @NonNull
-  RoomDimensions dimension();
+  RoomDimensions dimensions();
 
   /**
    * Returns the origin offset of this schematic relative to the {@code (0,0,0)} position of the block array.
