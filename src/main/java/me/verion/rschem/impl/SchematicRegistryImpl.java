@@ -10,13 +10,11 @@ import me.verion.rschem.model.connection.PortFace;
 import me.verion.rschem.model.connection.PortType;
 import me.verion.rschem.model.generation.RoomCategory;
 import org.jetbrains.annotations.Unmodifiable;
-import org.jetbrains.annotations.UnmodifiableView;
 
 import java.nio.file.Path;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 /**
  * Default {@link SchematicRegistry} implementation backed by a {@link ConcurrentHashMap}, allowing safe concurrent
