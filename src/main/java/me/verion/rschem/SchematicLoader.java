@@ -2,6 +2,7 @@ package me.verion.rschem;
 
 import lombok.NonNull;
 import me.verion.rschem.exception.SchematicLoadException;
+import me.verion.rschem.impl.DefaultSchematicLoader;
 import org.jetbrains.annotations.Unmodifiable;
 
 import java.nio.file.Path;
@@ -15,6 +16,15 @@ import java.util.Optional;
  * @since 1.0
  */
 public interface SchematicLoader {
+
+  /**
+   * Creates a new {@link SchematicLoader} using the default implementation.
+   *
+   * @return a new schematic loader, never null.
+   */
+  static @NonNull SchematicLoader create() {
+    return new DefaultSchematicLoader();
+  }
 
   /**
    * Loads and deserializes a single {@link Schematic} from the given file path.
