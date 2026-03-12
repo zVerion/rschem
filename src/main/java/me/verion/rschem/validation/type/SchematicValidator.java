@@ -24,7 +24,12 @@ public final class SchematicValidator {
 
   static {
     // register all built-in rules
+    GLOBAL_RULES.add(new IdFormatRule());
     GLOBAL_RULES.add(new DimensionConsistencyRule());
+    GLOBAL_RULES.add(new PaletteIntegrityRule());
+    GLOBAL_RULES.add(new PortConsistencyRule());
+    GLOBAL_RULES.add(new GenerationHintsRule());
+    GLOBAL_RULES.add(new TagFormatRule());
   }
 
   private SchematicValidator() {

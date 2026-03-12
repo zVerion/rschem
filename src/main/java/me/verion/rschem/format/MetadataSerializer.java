@@ -29,12 +29,14 @@ import java.util.Set;
  *
  * @since 1.0
  */
-final class MetadataSerializer {
-
-  private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+public final class MetadataSerializer {
 
   // the metadata schema version
-  static final int CURRENT_SCHEMA_VERSION = 2;
+  public static final int CURRENT_SCHEMA_VERSION = 2;
+
+  private static final Gson GSON = new GsonBuilder()
+    .setPrettyPrinting()
+    .create();
 
   private MetadataSerializer() {
     throw new UnsupportedOperationException();
@@ -63,7 +65,7 @@ final class MetadataSerializer {
     schematic.tags().forEach(tags::add);
     root.add("tags", tags);
 
-    var dim = schematic.dimension();
+    var dim = schematic.dimensions();
     JsonObject dimensions = new JsonObject();
     dimensions.addProperty("width", dim.width());
     dimensions.addProperty("height", dim.height());
