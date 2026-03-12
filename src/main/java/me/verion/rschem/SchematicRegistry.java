@@ -4,6 +4,8 @@ import lombok.NonNull;
 import me.verion.rschem.exception.SchematicLoadException;
 import me.verion.rschem.model.connection.*;
 import me.verion.rschem.model.generation.*;
+import org.jetbrains.annotations.Unmodifiable;
+import org.jetbrains.annotations.UnmodifiableView;
 
 import java.nio.file.Path;
 import java.util.Collection;
@@ -59,6 +61,7 @@ public interface SchematicRegistry {
    * @return an unmodifiable collection of all registered schematics, never null.
    */
   @NonNull
+  @UnmodifiableView
   Collection<Schematic> findAll();
 
   /**
@@ -69,6 +72,7 @@ public interface SchematicRegistry {
    * @return an unmodifiable list of matching schematics, never null.
    */
   @NonNull
+  @Unmodifiable
   List<Schematic> findByCategory(@NonNull RoomCategory category);
 
   /**
@@ -77,7 +81,9 @@ public interface SchematicRegistry {
    * @param tag the tag to filter by, never null.
    * @return an unmodifiable list of matching schematics, never null.
    */
-  @NonNull List<Schematic> findByTag(@NonNull String tag);
+  @NonNull
+  @Unmodifiable
+  List<Schematic> findByTag(@NonNull String tag);
 
   /**
    * Returns a snapshot of all registered {@link Schematic schematics} that have at least one {@link ConnectionPort} on
@@ -87,7 +93,9 @@ public interface SchematicRegistry {
    * @param portType the port type to filter by, never null.
    * @return an unmodifiable list of matching schematics, never null.
    */
-  @NonNull List<Schematic> findCompatible(@NonNull PortFace face, @NonNull PortType portType);
+  @NonNull
+  @Unmodifiable
+  List<Schematic> findCompatible(@NonNull PortFace face, @NonNull PortType portType);
 
   /**
    * Returns a new {@link SchematicQuery} scoped to this registry, allowing schematics to be filtered and retrieved
@@ -95,7 +103,8 @@ public interface SchematicRegistry {
    *
    * @return a new schematic query, never null.
    */
-  @NonNull SchematicQuery query();
+  @NonNull
+  SchematicQuery query();
 
   /**
    * Returns the total number of currently registered schematics.
