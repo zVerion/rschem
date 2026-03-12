@@ -3,7 +3,6 @@ package me.verion.rschem.model.connection;
 import com.google.common.base.Preconditions;
 import lombok.NonNull;
 import me.verion.rschem.model.RoomDimensions;
-import me.verion.rschem.model.generation.GenerationHint;
 import org.bukkit.util.BlockVector;
 import org.jetbrains.annotations.Unmodifiable;
 
@@ -168,6 +167,20 @@ public record ConnectionPort(
      */
     public @NonNull Builder position(@NonNull BlockVector position) {
       this.position = position;
+      return this;
+    }
+
+    /**
+     * Sets the block position of this port relative to the schematic origin from the given coordinates. Shorthand for
+     * {@link #position(BlockVector)}.
+     *
+     * @param x the x coordinate of the marker position.
+     * @param y the y coordinate of the marker position.
+     * @param z the z coordinate of the marker position.
+     * @return the same instance as used to call the method, for chaining.
+     */
+    public @NonNull Builder position(int x, int y, int z) {
+      this.position = new BlockVector(x, y, z);
       return this;
     }
 
