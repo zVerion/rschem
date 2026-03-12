@@ -23,7 +23,7 @@ import java.util.*;
  * @see Schematic
  * @since 1.0
  */
-public class SchematicBuilderImpl implements SchematicBuilder {
+public final class SchematicBuilderImpl implements SchematicBuilder {
 
   private final Set<String> tags = new HashSet<>();
 
