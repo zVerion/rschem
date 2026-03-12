@@ -2,7 +2,7 @@
 <div align="center">
   <p>A high-performance, extensible schematic library for procedural Minecraft world generation.</p>
 
-  [![GitHub Packages](https://img.shields.io/badge/GitHub-Packages-181717?style=flat&logo=github)](https://github.com/YOUR_USERNAME/rschem/packages)
+  [![GitHub Packages](https://img.shields.io/badge/GitHub-Packages-181717?style=flat&logo=github)](https://github.com/zVerion/rschem/packages)
   [![Javadoc](https://img.shields.io/badge/javadoc-latest-brightgreen?style=flat)](https://javadoc.io/doc/me.verion/rschem)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat)](LICENSE)
   [![Java](https://img.shields.io/badge/Java-21%2B-orange?style=flat)](https://adoptium.net/)
