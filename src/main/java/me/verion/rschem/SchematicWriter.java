@@ -3,6 +3,7 @@ package me.verion.rschem;
 import lombok.NonNull;
 import me.verion.rschem.exception.SchematicWriteException;
 import me.verion.rschem.format.compression.CompressionType;
+import me.verion.rschem.impl.DefaultSchematicWriter;
 
 import java.nio.file.Path;
 
@@ -13,6 +14,26 @@ import java.nio.file.Path;
  * @since 1.0
  */
 public interface SchematicWriter {
+
+  /**
+   * Creates a new {@link SchematicWriter} using {@link CompressionType#ZSTD} as the default
+   * compression.
+   *
+   * @return a new schematic writer, never null.
+   */
+  static @NonNull SchematicWriter create() {
+    return new DefaultSchematicWriter(CompressionType.ZSTD);
+  }
+
+  /**
+   * Creates a new {@link SchematicWriter} using the given {@link CompressionType} as the default compression.
+   *
+   * @param compression the default compression type, never null.
+   * @return a new schematic writer, never null.
+   */
+  static @NonNull SchematicWriter create(@NonNull CompressionType compression) {
+    return new DefaultSchematicWriter(compression);
+  }
 
   /**
    * Serializes the given {@link Schematic} to the given path using the writer's default {@link CompressionType}. Parent
