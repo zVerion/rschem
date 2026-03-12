@@ -2,9 +2,11 @@ package me.verion.rschem.transform;
 
 import lombok.NonNull;
 import me.verion.rschem.Schematic;
+import me.verion.rschem.impl.DefaultSchematicTransformer;
 import me.verion.rschem.model.TransformRule;
 import me.verion.rschem.model.connection.ConnectionPort;
 import org.bukkit.World;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.util.BlockVector;
 
 import java.util.concurrent.CompletableFuture;
@@ -17,6 +19,16 @@ import java.util.concurrent.CompletableFuture;
  * @since 1.0
  */
 public interface SchematicTransformer {
+
+  /**
+   * Creates a new {@link SchematicTransformer} bound to the given {@link Plugin}.
+   *
+   * @param plugin the plugin used to schedule async paste operations, never null.
+   * @return a new schematic transformer, never null.
+   */
+  static @NonNull SchematicTransformer create(@NonNull Plugin plugin) {
+    return new DefaultSchematicTransformer(plugin);
+  }
 
   /**
    * Rotates the given {@link Schematic} clockwise around the Y-axis by the given degrees, returning a new schematic

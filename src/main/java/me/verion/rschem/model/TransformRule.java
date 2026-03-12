@@ -20,7 +20,7 @@ import java.util.Set;
  * @param validRotations a non-null, unmodifiable set of allowed rotation angles in degrees (0–359).
  * @param allowMirrorX   {@code true} if mirroring along the X-axis is permitted.
  * @param allowMirrorZ   {@code true} if mirroring along the Z-axis is permitted.
- * @param vector         the center of rotation, or {@code null} if the default center should be used.
+ * @param rotationCenter the center of rotation, or {@code null} if the default center should be used.
  * @since 1.0
  */
 public record TransformRule(

@@ -1,5 +1,6 @@
 plugins {
   id("java-library")
+  id("maven-publish")
 }
 
 version = "0.0.2-SNAPSHOT"
@@ -32,4 +33,58 @@ tasks.withType<JavaCompile> {
 
 tasks.getByName<Test>("test") {
   useJUnitPlatform()
+}
+
+extensions.configure<JavaPluginExtension> {
+  withSourcesJar()
+  withJavadocJar()
+}
+
+extensions.configure<PublishingExtension> {
+  publications {
+    create<MavenPublication>("library") {
+      from(components["java"])
+
+      pom {
+        name.set("rschem")
+        description.set("A high-performance schematic library for procedural Minecraft world generation.")
+        url.set("https://github.com/zVerion/rschem")
+
+        licenses {
+          license {
+            name.set("MIT License")
+            url.set("https://opensource.org/licenses/MIT")
+          }
+        }
+
+        developers {
+          developer {
+            name.set("verion")
+            email.set("zverion.geschaeft@gmail.com")
+          }
+        }
+
+        scm {
+          url.set("https://github.com/zVerion/rschem")
+          connection.set("scm:git:https://github.com/zVerion/rschem.git")
+        }
+
+        issueManagement {
+          system.set("GitHub Issues")
+          url.set("https://github.com/zVerion/rschem/issues")
+        }
+      }
+    }
+  }
+
+  repositories {
+    maven {
+      name = "GitHubPackages"
+      url = uri("https://maven.pkg.github.com/zVerion/rschem")
+      credentials {
+        username = project.findProperty("gpr.user")?.toString() ?: System.getenv("GITHUB_ACTOR")
+        password = project.findProperty("gpr.token")?.toString() ?: System.getenv("GITHUB_TOKEN")
+      }
+    }
+  }
 }
