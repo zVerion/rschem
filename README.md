@@ -23,6 +23,12 @@ The core idea behind rschem is to model schematics not just as raw block arrays,
 rschem is distributed via GitHub Packages. To use it, add the repository and dependency to your build file.
 
 ### Gradle (Kotlin DSL)
+```kotlin
+repositories {
+  mavenCentral()
+  maven { url = uri("https://jitpack.io") }
+}
+```
 
 ```kotlin
 dependencies {
@@ -31,6 +37,12 @@ dependencies {
 ```
 
 ### Maven
+```xml
+ <repository>
+   <id>jitpack.io</id>
+   <url>https://jitpack.io</url>
+ </repository>
+```
 
 ```xml
 <dependency>
