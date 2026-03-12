@@ -3,8 +3,8 @@ plugins {
   id("maven-publish")
 }
 
-version = "0.0.2-SNAPSHOT"
-group = "me.verion.rschem"
+group = project.findProperty("group") ?: "me.verion.rschem"
+version = project.findProperty("version") ?: "0.0.2-SNAPSHOT"
 
 repositories {
   mavenCentral()
@@ -42,7 +42,7 @@ extensions.configure<JavaPluginExtension> {
 
 extensions.configure<PublishingExtension> {
   publications {
-    create<MavenPublication>("library") {
+    create<MavenPublication>("maven") {
       from(components["java"])
 
       pom {
