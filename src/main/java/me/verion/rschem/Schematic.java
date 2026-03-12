@@ -18,6 +18,14 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * Represents a fully loaded, immutable schematic of a single room. Holds all structural block data, semantic metadata,
+ * connection ports, floor plan markers and generation hints needed to place and connect the room during procedural
+ * generation.
+ *
+ * @see SchematicBuilder
+ * @since 1.0
+ */
 public interface Schematic {
 
   /**
@@ -27,6 +35,28 @@ public interface Schematic {
    */
   static @NonNull SchematicBuilder builder() {
     return new SchematicBuilderImpl();
+  }
+
+  /**
+   * Creates a new {@link SchematicBuilder} pre-populated with all values of the given {@link Schematic}, allowing
+   * selective modification of an existing schematic.
+   *
+   * @param schematic the schematic to copy, never null.
+   * @return a new pre-populated builder instance, never null.
+   */
+  static @NonNull SchematicBuilder builder(@NonNull Schematic schematic) {
+    return builder()
+      .id(schematic.id())
+      .displayName(schematic.displayName())
+      .category(schematic.category())
+      .dimensions(schematic.dimensions())
+      .origin(schematic.origin())
+      .blockData(schematic.palette(), schematic.blockData())
+      .generationHints(schematic.hints())
+      .transformRules(schematic.rules())
+      .applyPorts(schematic.ports())
+      .applyMarkers(schematic.markers())
+      .copyMetaFrom(schematic);
   }
 
   /**
