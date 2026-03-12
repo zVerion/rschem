@@ -32,7 +32,7 @@ repositories {
 
 ```kotlin
 dependencies {
-  implementation("me.verion.rschem:rschem:0.0.2-SNAPSHOT")
+  implementation("com.github.zVerion:rschem:v0.0.4-SNAPSHOT")
 }
 ```
 
@@ -46,9 +46,9 @@ dependencies {
 
 ```xml
 <dependency>
-  <groupId>me.verion</groupId>
+  <groupId>com.github.zVerion</groupId>
   <artifactId>rschem</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>v0.0.4-SNAPSHOT</version>
 </dependency>
 ```
 
