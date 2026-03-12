@@ -9,6 +9,7 @@ import java.util.List;
  * Holds the aggregated result of a validation process, providing access to all collected {@link ValidationIssue issues}
  * and convenience methods to query errors and warnings.
  *
+ * @param issues the list of {@link ValidationIssue} instances produced during validation.
  * @since 1.0
  */
 public record ValidationResult(List<ValidationIssue> issues) {
