@@ -12,6 +12,12 @@ import org.jspecify.annotations.NonNull;
 
 import java.util.List;
 
+/**
+ * Default {@link SchematicBuilder} implementation that accumulates field values and constructs a {@link Schematic} via
+ * {@link #build()}. Instances are obtained via {@link Schematic#builder()}.
+ *
+ * @since 1.0
+ */
 public interface SchematicBuilder {
 
   /**
