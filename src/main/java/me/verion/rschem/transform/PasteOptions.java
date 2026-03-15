@@ -82,7 +82,7 @@ public record PasteOptions(
      * @return a new immutable {@link PasteOptions} instance.
      */
     public @NonNull PasteOptions build() {
-      Preconditions.checkState(this.chunkBatchSize <= 0, "chunkBatchSize must be > 0");
+      Preconditions.checkState(this.chunkBatchSize >= 0, "chunkBatchSize must be > 0");
 
       return new PasteOptions(this.ignoreAir, this.pasteEntities, this.chunkBatchSize, this.onComplete);
     }
